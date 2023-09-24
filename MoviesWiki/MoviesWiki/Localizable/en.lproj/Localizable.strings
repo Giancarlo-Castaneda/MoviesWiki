@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+*/
+
+"MOVIE_OVERVIEW" = "Overview";
+"MOVIE_TITLE" = "Movies";
+"MOVIE_MEDIA" = "Media";
+"MOVIE_GALLERY" = "Gallery";

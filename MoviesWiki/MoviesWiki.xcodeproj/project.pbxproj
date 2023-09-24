@@ -59,6 +59,7 @@
 		ABF88DA92AC0F159006B0459 /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF88DA82AC0F159006B0459 /* View+CornerRadius.swift */; };
 		ABF88DAB2AC0F166006B0459 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF88DAA2AC0F166006B0459 /* RoundedCorner.swift */; };
 		ABF88DB42AC0FEB5006B0459 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABF88DB32AC0FEB5006B0459 /* Colors.xcassets */; };
+		ABF88DB82AC0FF1B006B0459 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABF88DBA2AC0FF1B006B0459 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		ABF88DA82AC0F159006B0459 /* View+CornerRadius.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius.swift"; sourceTree = "<group>"; };
 		ABF88DAA2AC0F166006B0459 /* RoundedCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		ABF88DB32AC0FEB5006B0459 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		ABF88DB92AC0FF1B006B0459 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				ABF88CD02ABB7411006B0459 /* MoviesWikiApp.swift */,
 				ABF88D582AC0D768006B0459 /* API */,
 				ABF88D4C2AC0D52B006B0459 /* Features */,
+				ABF88DB52AC0FF08006B0459 /* Localizable */,
 				ABF88CFA2ABB7500006B0459 /* Networking */,
 				ABF88CD62ABB7412006B0459 /* Preview Content */,
 				ABF88DB22AC0FEA1006B0459 /* Resources */,
@@ -438,6 +441,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		ABF88DB52AC0FF08006B0459 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				ABF88DBA2AC0FF1B006B0459 /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -520,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABF88DB42AC0FEB5006B0459 /* Colors.xcassets in Resources */,
+				ABF88DB82AC0FF1B006B0459 /* Localizable.strings in Resources */,
 				ABF88CD82ABB7412006B0459 /* Preview Assets.xcassets in Resources */,
 				ABF88CD52ABB7412006B0459 /* Assets.xcassets in Resources */,
 			);
@@ -607,6 +619,17 @@
 			targetProxy = ABF88CDE2ABB7412006B0459 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ABF88DBA2AC0FF1B006B0459 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABF88DB92AC0FF1B006B0459 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		ABF88CEF2ABB7412006B0459 /* Debug */ = {
