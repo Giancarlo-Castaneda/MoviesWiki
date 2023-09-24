@@ -1,13 +1,15 @@
 import Foundation
 
 public enum RequestError: Error {
-    case decode
+    case decode(Error)
     case invalidURL
     case noResponse
     case unauthorized
-    case unexpectedStatusCode
+    case unexpectedStatusCode(statusCode: Int)
     case unknown
     case badRequest
+    case serverError(statusCode: Int, reason: String? = nil, retryAfter: String? = nil)
+    case invalidRequest
 }
 
 // MARK: - LocalizedError
@@ -16,8 +18,11 @@ extension RequestError: LocalizedError {
 
     public var errorDescription: String? {
         switch self {
-        case .decode:
-            return "Decode error"
+        case let .decode(error):
+            return "Decode error: " + error.localizedDescription
+
+        case .invalidRequest:
+            return "Invalid request"
 
         case .unauthorized:
             return "Session expired"
@@ -29,11 +34,14 @@ extension RequestError: LocalizedError {
                 .unknown:
             return "Unknown error"
 
-        case .unexpectedStatusCode:
-            return "Unexpected Status Code"
+        case let .unexpectedStatusCode(statusCode):
+            return "Unexpected Status Code: \(statusCode)"
 
         case .badRequest:
             return "Bad request"
+
+        case let .serverError(statusCode, reason, retryAfter):
+            return "Server error with code \(statusCode), reason: \(reason ?? "no reason given"), retry after: \(retryAfter ?? "no retry after provided")"
         }
     }
 }

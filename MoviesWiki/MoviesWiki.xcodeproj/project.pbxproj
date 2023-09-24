@@ -20,6 +20,7 @@
 		ABF88D072ABB7590006B0459 /* HTTPMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF88D062ABB7590006B0459 /* HTTPMethodTests.swift */; };
 		ABF88D092ABB75A5006B0459 /* RequestErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF88D082ABB75A5006B0459 /* RequestErrorTests.swift */; };
 		ABF88D0C2ABB762D006B0459 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF88D0B2ABB762D006B0459 /* Constants.swift */; };
+		ABF88D4B2AC0D3B9006B0459 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF88D4A2AC0D3B9006B0459 /* ErrorResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		ABF88D062ABB7590006B0459 /* HTTPMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethodTests.swift; sourceTree = "<group>"; };
 		ABF88D082ABB75A5006B0459 /* RequestErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestErrorTests.swift; sourceTree = "<group>"; };
 		ABF88D0B2ABB762D006B0459 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ABF88D4A2AC0D3B9006B0459 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				ABF88D032ABB7554006B0459 /* ConcreteNetworkingProvider.swift */,
+				ABF88D4A2AC0D3B9006B0459 /* ErrorResponse.swift */,
 				ABF88CFF2ABB753F006B0459 /* HTTPMethod.swift */,
 				ABF88D012ABB754B006B0459 /* NetworkingProvider.swift */,
 				ABF88CFD2ABB7536006B0459 /* RequestError.swift */,
@@ -251,6 +254,7 @@
 				ABF88D022ABB754B006B0459 /* NetworkingProvider.swift in Sources */,
 				ABF88CD12ABB7411006B0459 /* MoviesWikiApp.swift in Sources */,
 				ABF88D002ABB753F006B0459 /* HTTPMethod.swift in Sources */,
+				ABF88D4B2AC0D3B9006B0459 /* ErrorResponse.swift in Sources */,
 				ABF88CFC2ABB751D006B0459 /* RequestType.swift in Sources */,
 				ABF88D0C2ABB762D006B0459 /* Constants.swift in Sources */,
 			);

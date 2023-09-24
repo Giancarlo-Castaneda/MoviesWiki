@@ -1,3 +1,4 @@
+import Combine
 import Foundation
 
 final class ConcreteNetworkingProvider: NetworkingProvider {
@@ -40,50 +41,47 @@ final class ConcreteNetworkingProvider: NetworkingProvider {
         return request
     }
 
-    private func launchTask(request: URLRequest) async throws -> Data {
-        do {
-            let (data, response) = try await URLSession.shared.data(for: request, delegate: nil)
-            guard
-                let response = response as? HTTPURLResponse
-            else { throw RequestError.noResponse }
+    private func checkResponse(output: URLSession.DataTaskPublisher.Output) throws -> Data {
+        guard
+            let urlResponse = output.response as? HTTPURLResponse
+        else { throw RequestError.noResponse }
 
-            switch response.statusCode {
-            case 200...299:
-                return data
+        switch urlResponse.statusCode {
+        case 200..<300:
+            return output.data
 
-            case 400:
-                throw RequestError.badRequest
+        case 400:
+            throw RequestError.badRequest
 
-            case 401:
-                throw RequestError.unauthorized
+        case 500..<600:
+            let apiError = try self.jsonDecoder.decode(ErrorResponse.self, from: output.data)
+            throw RequestError.serverError(statusCode: urlResponse.statusCode,
+                                       reason: apiError.statusMessage,
+                                       retryAfter: urlResponse.value(forHTTPHeaderField: "Retry-After"))
 
-            default:
-                throw RequestError.unexpectedStatusCode
-            }
-        } catch {
-            throw error
+        default:
+            throw RequestError.unexpectedStatusCode(statusCode: urlResponse.statusCode)
         }
     }
 
     // MARK: - Internal Methods
 
-    func sendRequest(endpoint: RequestType) async throws {
-        let request = try createRequest(endpoint: endpoint)
-
-        _ = try await launchTask(request: request)
-    }
-
-    func sendRequest<T: Decodable>(endpoint: RequestType, responseModel: T.Type) async throws -> T {
-        let request = try createRequest(endpoint: endpoint)
-
-        let data = try await launchTask(request: request)
-
-        do {
-            let decodedResponse = try jsonDecoder.decode(responseModel, from: data)
-
-            return decodedResponse
-        } catch {
-            throw error
+    func request<T: Decodable>(_ endpoint: RequestType) -> AnyPublisher<T, Error> {
+        guard
+            let request = try? createRequest(endpoint: endpoint)
+        else {
+            return Fail(error: RequestError.invalidRequest)
+                .eraseToAnyPublisher()
         }
+
+        return URLSession.shared
+            .dataTaskPublisher(for: request)
+            .tryMap { try self.checkResponse(output: $0) }
+            .decode(type: T.self, decoder: jsonDecoder)
+            .mapError { error in
+                RequestError.decode(error)
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 }
