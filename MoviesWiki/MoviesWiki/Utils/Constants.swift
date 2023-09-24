@@ -1,5 +1,8 @@
 import Foundation
 
-enum Keys {
-    static let Apiv3 = "e2c11c9b86cb2ae8bd6a0726aa097d6d"
+enum Constants {
+    static let Apiv3Key = "e2c11c9b86cb2ae8bd6a0726aa097d6d"
+    static let language = "es-MX"
+    static let baseURL = "api.themoviedb.org"
+    static let apiVersion = "3"
 }
