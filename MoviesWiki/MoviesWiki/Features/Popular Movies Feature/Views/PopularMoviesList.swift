@@ -43,8 +43,8 @@ struct PopularMoviesList_Previews: PreviewProvider {
     static var previews: some View {
         let movies = [
             Helper.makeMovieModel(),
-            Helper.makeMovieModel(),
-            Helper.makeMovieModel()
+            Helper.makeMovieModel(id: 2),
+            Helper.makeMovieModel(id: 3)
         ]
 
         PopularMoviesList(movies: movies,

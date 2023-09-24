@@ -21,6 +21,10 @@ struct MovieModel: Codable {
     let voteCount: Int?
 }
 
+// MARK: - Hashable
+
+extension MovieModel: Hashable { }
+
 // MARK: - Identifiable
 
 extension MovieModel: Identifiable { }

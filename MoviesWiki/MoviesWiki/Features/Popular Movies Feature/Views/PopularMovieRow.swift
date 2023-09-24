@@ -2,6 +2,7 @@ import SwiftUI
 
 struct PopularMovieRow: View {
 
+    @EnvironmentObject var viewModel: MovieDetailViewModel
     let movie: MovieModel
     @State var progressValue: Float = 0.0
     @State private var isActive = false
@@ -36,6 +37,15 @@ struct PopularMovieRow: View {
                 .padding(.bottom, 10)
         }
         .background(Color.black)
+        .background(
+            NavigationLink(
+                destination: MovieDetailScreen(movieId: movie.id ?? 0).environmentObject(viewModel),
+                isActive: $isActive,
+                label: {
+                    EmptyView()
+                }
+            )
+        )
         .cornerRadius(20)
         .modifier(ShadowModifier(shadowColor: .white))
         .onTapGesture {
@@ -52,5 +62,12 @@ struct PopularMovieRow_Previews: PreviewProvider {
 
     static var previews: some View {
         PopularMovieRow(movie: Helper.makeMovieModel())
+            .environmentObject(
+                MovieDetailViewModel(
+                    movieDetailRepository: ConcreteMovieDetailRepository(
+                        networkProvider: ConcreteNetworkingProvider(jsonDecoder: JSONDecoder())
+                    )
+                )
+            )
     }
 }

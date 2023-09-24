@@ -8,11 +8,19 @@ struct MoviesWikiApp: App {
             networkingProvider: ConcreteNetworkingProvider(jsonDecoder: jsonDecoder)
         )
     )
+    @StateObject var detailViewModel = MovieDetailViewModel(
+        movieDetailRepository: ConcreteMovieDetailRepository(
+            networkProvider: ConcreteNetworkingProvider(jsonDecoder: JSONDecoder())
+        )
+    )
 
     var body: some Scene {
         WindowGroup {
-            PopularMoviesScreen()
-                .environmentObject(popularMoviesViewModel)
+            NavigationView {
+                PopularMoviesScreen()
+                    .environmentObject(popularMoviesViewModel)
+                    .environmentObject(detailViewModel)
+            }
         }
     }
 }
