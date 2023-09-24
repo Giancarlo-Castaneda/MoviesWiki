@@ -27,6 +27,7 @@
 		ABF88D572AC0D720006B0459 /* ConcretePopularMoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF88D562AC0D720006B0459 /* ConcretePopularMoviesRepository.swift */; };
 		ABF88D5A2AC0D785006B0459 /* RequestAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF88D592AC0D785006B0459 /* RequestAPIModel.swift */; };
 		ABF88D5C2AC0D7E8006B0459 /* RequestAPIModel+Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF88D5B2AC0D7E8006B0459 /* RequestAPIModel+Movie.swift */; };
+		ABF88D5F2AC0D99B006B0459 /* PopularMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF88D5E2AC0D99B006B0459 /* PopularMoviesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		ABF88D562AC0D720006B0459 /* ConcretePopularMoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcretePopularMoviesRepository.swift; sourceTree = "<group>"; };
 		ABF88D592AC0D785006B0459 /* RequestAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIModel.swift; sourceTree = "<group>"; };
 		ABF88D5B2AC0D7E8006B0459 /* RequestAPIModel+Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RequestAPIModel+Movie.swift"; sourceTree = "<group>"; };
+		ABF88D5E2AC0D99B006B0459 /* PopularMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +107,9 @@
 			children = (
 				ABF88CD22ABB7411006B0459 /* ContentView.swift */,
 				ABF88CD02ABB7411006B0459 /* MoviesWikiApp.swift */,
+				ABF88CD42ABB7412006B0459 /* Assets.xcassets */,
 				ABF88D582AC0D768006B0459 /* API */,
 				ABF88D4C2AC0D52B006B0459 /* Features */,
-				ABF88CD42ABB7412006B0459 /* Assets.xcassets */,
 				ABF88CFA2ABB7500006B0459 /* Networking */,
 				ABF88CD62ABB7412006B0459 /* Preview Content */,
 				ABF88D0A2ABB761E006B0459 /* Utils */,
@@ -175,6 +177,7 @@
 			children = (
 				ABF88D512AC0D583006B0459 /* Models */,
 				ABF88D4E2AC0D552006B0459 /* Repositories */,
+				ABF88D5D2AC0D993006B0459 /* ViewModels */,
 			);
 			path = "Popular Movies Feature";
 			sourceTree = "<group>";
@@ -204,6 +207,14 @@
 				ABF88D5B2AC0D7E8006B0459 /* RequestAPIModel+Movie.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		ABF88D5D2AC0D993006B0459 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ABF88D5E2AC0D99B006B0459 /* PopularMoviesViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +326,7 @@
 				ABF88D022ABB754B006B0459 /* NetworkingProvider.swift in Sources */,
 				ABF88D502AC0D55A006B0459 /* PopularMoviesRepository.swift in Sources */,
 				ABF88CD12ABB7411006B0459 /* MoviesWikiApp.swift in Sources */,
+				ABF88D5F2AC0D99B006B0459 /* PopularMoviesViewModel.swift in Sources */,
 				ABF88D002ABB753F006B0459 /* HTTPMethod.swift in Sources */,
 				ABF88D572AC0D720006B0459 /* ConcretePopularMoviesRepository.swift in Sources */,
 				ABF88D552AC0D6D6006B0459 /* MoviePaginationModel.swift in Sources */,
