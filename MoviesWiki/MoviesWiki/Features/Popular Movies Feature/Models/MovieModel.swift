@@ -20,3 +20,11 @@ struct MovieModel: Codable {
     let voteAverage: Double?
     let voteCount: Int?
 }
+
+// MARK: - Identifiable
+
+extension MovieModel: Identifiable { }
+
+// MARK: - Equatable
+
+extension MovieModel: Equatable { }

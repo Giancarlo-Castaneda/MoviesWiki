@@ -18,7 +18,7 @@ public extension RequestType {
     }
 
     var host: String {
-        "api.themoviedb.org/3"
+        "api.themoviedb.org"
     }
 
     var header: [String: String] {
